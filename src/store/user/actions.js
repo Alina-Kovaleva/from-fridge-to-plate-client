@@ -8,9 +8,7 @@ import {
   setMessage,
 } from "../appState/actions";
 
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
-export const LOG_OUT = "LOG_OUT";
+import { LOG_OUT, LOGIN_SUCCESS, TOKEN_STILL_VALID } from "./types";
 
 const loginSuccess = (userWithToken) => {
   return {
