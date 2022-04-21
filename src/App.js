@@ -12,7 +12,6 @@ import Recipes from "./pages/Recipes";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-import HeroBanner from "./components/HeroBanner";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,9 +25,6 @@ function App() {
     <div className="App">
       <Navigation />
       <MessageBox />
-      <HeroBanner>
-        <h1>Eat plenty, eat deliciously</h1>
-      </HeroBanner>
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route exact path="/" element={<Recipes />} />
