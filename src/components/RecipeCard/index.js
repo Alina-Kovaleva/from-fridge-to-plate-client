@@ -8,16 +8,15 @@ export default function Item(props) {
     <Card style={{ width: "18rem" }}>
       <Card.Img style={{ padding: "8px" }} variant="top" src={props.imageUrl} />
       <Card.Body className="center">
-        <Card.Title>{props.title}</Card.Title>
+        <Card.Title style={{ textAlign: "center" }}>{props.title}</Card.Title>
         <Card.Text>
           <ReactStars
-            count={5}
+            count={3}
             size={24}
-            isHalf={true}
+            activeColor={"red"}
             value={props.difficulty}
             edit={false}
           />
-          {props.difficulty}
         </Card.Text>
         <Card.Text>⏱ {props.duration}h.</Card.Text>
         <Link to={`/recipes/${props.id}`}>

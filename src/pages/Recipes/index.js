@@ -15,12 +15,12 @@ export default function Recipes() {
     dispatch(fetchAllRecipes());
   }, [dispatch]);
   return (
-    <div>
-      <HeroBanner>
+    <div className="main-page">
+      <HeroBanner className="hero-main-page">
         <h1>Eat plenty, eat deliciously</h1>
       </HeroBanner>
       <div className="content">
-        <Container>
+        <Container className="home-page-container">
           <Row>filters line</Row>
           <Row xs={2} md={3} className="space g-4">
             {recipes?.map((recipe) => {
