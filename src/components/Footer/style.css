@@ -1,0 +1,16 @@
+.footer-container {
+  max-width: 100% !important;
+  height: 100% !important;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  bottom: 0;
+  padding: 2%;
+  background-color: #ffbd14;
+}
+
+.footer-container a {
+  color: beige;
+}

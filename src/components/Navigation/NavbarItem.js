@@ -5,7 +5,7 @@ import "./style.css";
 
 export default function NavbarItem(props) {
   return (
-    <Nav.Item>
+    <Nav.Item className="nav-item">
       <Nav.Link as={NavLink} to={props.path} className="nav-link-item">
         {props.linkText}
       </Nav.Link>

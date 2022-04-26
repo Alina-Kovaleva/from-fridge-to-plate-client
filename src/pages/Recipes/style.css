@@ -1,5 +1,6 @@
 .main-page {
   background-color: #ffbd14;
+  display: flex;
 }
 /* .hero-main-page {
   background: 

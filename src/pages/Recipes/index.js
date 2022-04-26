@@ -4,7 +4,7 @@ import { fetchAllRecipes } from "../../store/recipes/actions";
 import { selectRecipes } from "../../store/recipes/selectors";
 import { Container, Row, Col, CardGroup, Form } from "react-bootstrap";
 import Item from "../../components/RecipeCard";
-import HeroBanner from "../../components/HeroBanner";
+// import HeroBanner from "../../components/HeroBanner";
 import "./style.css";
 
 export default function Recipes() {
@@ -16,9 +16,9 @@ export default function Recipes() {
   }, [dispatch]);
   return (
     <div className="main-page">
-      <HeroBanner className="hero-main-page">
+      {/* <HeroBanner className="hero-main-page">
         <h1>Eat plenty, eat deliciously</h1>
-      </HeroBanner>
+      </HeroBanner> */}
       <div className="content">
         <Container className="home-page-container">
           <Row>filters line</Row>

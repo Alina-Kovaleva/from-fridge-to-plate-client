@@ -3,13 +3,14 @@ import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Recipes from "./pages/Recipes";
 import RecipeDetails from "./pages/RecipeDetails";
-import { Container } from "react-bootstrap";
+import AddNewRecipe from "./pages/AddNewRecipe";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -33,7 +34,9 @@ function App() {
         <Route exact path="/recipes/:id" element={<RecipeDetails />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/new" element={<AddNewRecipe />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

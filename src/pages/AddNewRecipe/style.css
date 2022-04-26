@@ -1,0 +1,15 @@
+.add-recipe-form {
+  padding-bottom: 2%;
+}
+.add-recipe-form-title {
+  text-align: center;
+}
+.form-submit-button {
+  display: flex;
+  justify-content: right;
+}
+
+.input-ingredient-fild {
+  justify-content: space-between;
+  align-items: flex-end;
+}

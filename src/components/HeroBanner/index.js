@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./style.css";
 
 const HeroBanner = ({ children }) => {
   return <div className="hero-banner">{children}</div>;

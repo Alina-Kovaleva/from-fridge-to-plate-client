@@ -1,3 +1,7 @@
+.details-container {
+  display: flex;
+  justify-content: center;
+}
 .content {
   display: flex;
   justify-content: center;
@@ -5,4 +9,36 @@
 
 .card {
   margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.card-recipe-title {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 2%;
+}
+
+.difficulty {
+  display: flex;
+  flex-direction: row;
+}
+.difficulty-duration {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ingredients-description {
+  display: flex;
+}
+
+.ingredients {
+  width: 30%;
+}
+.description {
+  width: 70%;
+  padding-right: 2%;
+}
+.list {
+  list-style: none;
 }
