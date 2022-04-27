@@ -26,7 +26,15 @@ export const recipePostSuccess = (recipe) => ({
 export const fetchAllRecipes = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`${apiUrl}/recipes`);
+      const { token } = selectUser(getState());
+      const headers = {};
+      if (token) {
+        headers.Authorization = `Bearer ${token}`;
+      }
+
+      const response = await axios.get(`${apiUrl}/recipes`, {
+        headers: headers,
+      });
       dispatch(fetchRecipes(response.data));
     } catch (e) {
       console.log(e.message);

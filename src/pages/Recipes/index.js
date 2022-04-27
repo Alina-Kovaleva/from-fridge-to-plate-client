@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllRecipes } from "../../store/recipes/actions";
 import { selectRecipes } from "../../store/recipes/selectors";
@@ -14,6 +14,12 @@ export default function Recipes() {
   useEffect(() => {
     dispatch(fetchAllRecipes());
   }, [dispatch]);
+
+  // const [sortBy, setSortBy] = useState("byDate");
+  // const changeSorting = (event) => {
+  //   setSortBy(event.target.value);
+  // };
+
   return (
     <div className="main-page">
       {/* <HeroBanner className="hero-main-page">
@@ -21,7 +27,14 @@ export default function Recipes() {
       </HeroBanner> */}
       <div className="content">
         <Container className="home-page-container">
-          <Row>filters line</Row>
+          {/* <Row>
+            <Form.Select onChange={changeSorting} value={sortBy}>
+              <option value="byDate">sort by created date</option>
+              <option value="byName">Name</option>
+              <option value="byDuration">sort by duration</option>
+              <option value="byDifficulty">sort by difficulty</option>
+            </Form.Select>
+          </Row> */}
           <Row xs={2} md={3} className="space g-4">
             {recipes?.map((recipe) => {
               let time = recipe.duration / 60;
