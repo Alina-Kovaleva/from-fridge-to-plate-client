@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Form,
-  Col,
-  Button,
-  Image,
-  Row,
-  Container,
-  ListGroup,
-} from "react-bootstrap";
+import { Form, Col, Button, Row, Container } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../store/user/selectors";
@@ -81,19 +73,41 @@ export default function MyFridge() {
   return (
     <>
       <Container>
-        <h1>List of available products</h1>
-        {allIngredients?.map((myproduct) => {
-          return (
-            <ListGroup horizontal key={myproduct.id}>
-              <ListGroup.Item>
-                <h5>{myproduct.name}</h5>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <h5>{myproduct.useringredient?.amount}</h5>
-              </ListGroup.Item>
-            </ListGroup>
-          );
-        })}
+        <Form>
+          {/* <h1>List of available products</h1> */}
+          <Form.Label>List of available products</Form.Label>
+          {allIngredients?.map((myproduct) => {
+            return (
+              <>
+                {/* <ListGroup horizontal key={myproduct.id}>
+                <ListGroup.Item>
+                  <h5>{myproduct.name}</h5>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <h5>{myproduct.useringredient?.amount}</h5>
+                </ListGroup.Item>
+              </ListGroup> */}
+
+                <Form.Group>
+                  <Row>
+                    <Col sm={7}>
+                      <Container>
+                        <h5>{myproduct.name}</h5>
+                      </Container>
+                    </Col>
+                    <Col sm={2}>
+                      <Form.Control
+                        placeholder={myproduct.useringredient?.amount}
+                        type="number"
+                        min="0"
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+              </>
+            );
+          })}
+        </Form>
       </Container>
       <Container>
         <Form className="form-card">

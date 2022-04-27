@@ -10,6 +10,10 @@ export default function Item(props) {
   const token = useSelector(selectToken);
 
   const loginControlFav = token ? <Button>♡</Button> : null;
+  const hours = Math.floor(props.duration / 60)
+    ? Math.floor(props.duration / 60) + "h"
+    : null;
+  const minutes = props.duration % 60 ? (props.duration % 60) + "m" : null;
 
   return (
     <Card style={{ width: "18rem" }}>
@@ -26,7 +30,10 @@ export default function Item(props) {
               edit={false}
             />
           </Card.Text>
-          <Card.Text className="duration-text">⏱ {props.duration}h.</Card.Text>
+          <Card.Text className="duration-text">
+            ⏱ {hours}
+            {minutes}
+          </Card.Text>
         </div>
         <div className="recipe-card-buttons">
           {loginControlFav}

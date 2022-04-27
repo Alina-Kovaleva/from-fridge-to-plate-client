@@ -37,7 +37,6 @@ export default function Recipes() {
           </Row> */}
           <Row xs={2} md={3} className="space g-4">
             {recipes?.map((recipe) => {
-              let time = recipe.duration / 60;
               return (
                 <Item
                   key={recipe.id}
@@ -45,7 +44,7 @@ export default function Recipes() {
                   imageUrl={recipe.imageUrl}
                   title={recipe.title}
                   difficulty={recipe.difficulty}
-                  duration={time}
+                  duration={recipe.duration}
                 />
               );
             })}

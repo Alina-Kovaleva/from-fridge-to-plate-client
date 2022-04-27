@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { selectRecipe } from "../../store/recipes/selectors";
 import { fetchRecipeById } from "../../store/recipes/actions";
 import Loading from "../../components/Loading";
-import { Container, Row, Image, Table, Card, ListGroup } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 import "./style.css";
 
@@ -20,7 +20,13 @@ export default function RecipeDetails() {
 
   if (recipe === null) return <Loading />;
 
-  console.log(recipe);
+  // console.log(recipe);
+
+  const hours = Math.floor(recipe.duration / 60)
+    ? Math.floor(recipe.duration / 60) + "h"
+    : null;
+  const minutes = recipe.duration % 60 ? (recipe.duration % 60) + "m" : null;
+
   return (
     <>
       <Container className="details-container">
@@ -31,7 +37,7 @@ export default function RecipeDetails() {
             variant="top"
             src={recipe.imageUrl}
           />
-          <Card.Body>
+          <Card.Body className="card-body-optional">
             <div className="difficulty-duration">
               <Card.Text className="difficulty">
                 <p>Difficulty: </p>
@@ -43,7 +49,10 @@ export default function RecipeDetails() {
                   edit={false}
                 />
               </Card.Text>
-              <Card.Text>⏱ {recipe.duration / 60}h.</Card.Text>
+              <Card.Text>
+                ⏱ {hours}
+                {minutes}
+              </Card.Text>
             </div>
             <div className="ingredients-description">
               <Card.Text className="ingredients">

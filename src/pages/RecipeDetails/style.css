@@ -11,7 +11,9 @@
   margin-top: 5%;
   margin-bottom: 5%;
 }
-
+.card-body-optional {
+  min-width: 100%;
+}
 .card-recipe-title {
   text-transform: uppercase;
   text-align: center;
