@@ -58,27 +58,28 @@ export const fetchUserFavoriteRecipe = (userId) => {
 };
 
 export const addNewRecipe = (
-  imageUrl,
   title,
   difficulty,
   duration,
   description,
+  imageUrl,
   ingredients
 ) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
-    let success = true;
+    // let success = true;
+    const { token } = selectUser(getState());
+    if (token === null) return;
 
     try {
-      const { token } = selectUser(getState());
       const response = await axios.post(
         `${apiUrl}/recipes/new`,
         {
-          imageUrl,
           title,
           difficulty,
           duration,
           description,
+          imageUrl,
           ingredients,
         },
         {
@@ -87,9 +88,13 @@ export const addNewRecipe = (
           },
         }
       );
+      console.log("what is the response= ", response);
+
+      dispatch(recipePostSuccess(response.data.recipe));
       dispatch(
         showMessageWithTimeout("success", false, response.data.message, 3000)
       );
+      dispatch(appDoneLoading());
     } catch (e) {
       console.log(e.message);
     }

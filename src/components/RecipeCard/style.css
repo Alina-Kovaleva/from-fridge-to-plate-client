@@ -1,0 +1,14 @@
+.recipe-card-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.duration-text {
+  height: 36px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

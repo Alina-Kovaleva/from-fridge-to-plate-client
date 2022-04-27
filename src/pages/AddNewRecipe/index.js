@@ -1,10 +1,17 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Col, Button, Image, Row, Container } from "react-bootstrap";
 import { addNewRecipe } from "../../store/recipes/actions";
+import { useNavigate } from "react-router-dom";
+import { selectToken } from "../../store/user/selectors";
 import "./style.css";
+
 export default function AddNewRecipe() {
+  const token = useSelector(selectToken);
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
+
   const [title, setTitle] = useState("");
   const [difficulty, setDifficulty] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -12,10 +19,17 @@ export default function AddNewRecipe() {
   const [imageUrl, setImageUrl] = useState("");
   const [ingredients, setIngredients] = useState([
     {
+      id: 1,
       ingredientName: "",
       amount: 1,
     },
   ]);
+
+  useEffect(() => {
+    if (token === null) {
+      navigate("/");
+    }
+  }, [token, navigate]);
 
   function submitForm(event) {
     event.preventDefault();
@@ -38,7 +52,10 @@ export default function AddNewRecipe() {
   };
 
   const handleAdd = (id) => {
-    setIngredients([...ingredients, { ingredientName: "", amount: 1 }]);
+    setIngredients([
+      ...ingredients,
+      { id: id + 2, ingredientName: "", amount: 1 },
+    ]);
   };
   const handleSubstract = (i) => {
     const values = [...ingredients];
@@ -82,6 +99,8 @@ export default function AddNewRecipe() {
                   <Form.Control
                     value={field.amount}
                     name="amount"
+                    type="number"
+                    min="0"
                     onChange={(event) => handleChangeInput(i, event)}
                     required
                   />
@@ -145,6 +164,9 @@ export default function AddNewRecipe() {
           <Form.Label>Difficulty</Form.Label>
           <Form.Control
             value={difficulty}
+            type="number"
+            min="1"
+            max="3"
             onChange={(event) => setDifficulty(event.target.value)}
             required
           />
@@ -155,6 +177,8 @@ export default function AddNewRecipe() {
           <Form.Label>Duration in minutes</Form.Label>
           <Form.Control
             value={duration}
+            type="number"
+            min="5"
             onChange={(event) => setDuration(event.target.value)}
             required
           />

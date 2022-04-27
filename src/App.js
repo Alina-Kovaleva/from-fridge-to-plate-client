@@ -11,6 +11,8 @@ import Login from "./pages/Login";
 import Recipes from "./pages/Recipes";
 import RecipeDetails from "./pages/RecipeDetails";
 import AddNewRecipe from "./pages/AddNewRecipe";
+import Favourites from "./pages/Favourites";
+import MyFridge from "./pages/MyFridge";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -35,6 +37,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/new" element={<AddNewRecipe />} />
+        <Route path="/my_favourites" element={<Favourites />} />
+        <Route path="/myfridge" element={<MyFridge />} />
       </Routes>
       <Footer />
     </div>
