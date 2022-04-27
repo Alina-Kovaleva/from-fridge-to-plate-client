@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../store/user/selectors";
 import Loading from "../../components/Loading";
 import { selectIngredients } from "../../store/fridges/selectors";
-import { fetschAllIngredients } from "../../store/fridges/actions";
+import { fetchAllIngredients } from "../../store/fridges/actions";
 
 import { useNavigate } from "react-router-dom";
 import { selectToken } from "../../store/user/selectors";
@@ -17,8 +17,8 @@ export default function MyFridge() {
   // console.log("user= ", user);
   const userId = user.id;
   console.log("userId= ", userId);
-  // const ingredients = useSelector(selectIngredients(user?.id));
-  // console.log("ingredients= ", ingredients);
+  const allIngredients = useSelector(selectIngredients);
+  console.log("allIngredients= ", allIngredients);
   const dispatch = useDispatch();
   const [ingredients, setIngredients] = useState([
     {
@@ -55,9 +55,10 @@ export default function MyFridge() {
   // if (ingredients === null) return <Loading />;
   // // console.log("ingredients= ", ingredients);
 
+  console.log("!!!!!");
   useEffect(() => {
-    dispatch(fetschAllIngredients(user.id));
-  }, [dispatch, user.id]);
+    dispatch(fetchAllIngredients());
+  }, [dispatch]);
 
   return (
     <>

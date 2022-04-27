@@ -15,24 +15,19 @@ export const fetchIngredients = (ingredients) => ({
   payload: ingredients,
 });
 
-export const fetschAllIngredients = (userId) => {
+export const fetchAllIngredients = () => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
 
     const { token } = selectUser(getState());
-
     try {
-      const response = await axios.get(
-        `${apiUrl}/recipes/myfridge/${userId}`,
-        { userId },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${apiUrl}/myfridge`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log("response= ", response);
-      dispatch(fetchIngredients(response.data.ingredients));
+      dispatch(fetchIngredients(response.data));
       dispatch(appDoneLoading());
     } catch (e) {
       console.log(e.message);
