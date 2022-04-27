@@ -1,0 +1,13 @@
+.form-card {
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  margin: 2%;
+}
+
+.form-card-title {
+  font-size: 3em;
+}
