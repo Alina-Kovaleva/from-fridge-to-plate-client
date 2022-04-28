@@ -53,18 +53,6 @@ export const fetchRecipeById = (id) => {
   };
 };
 
-export const fetchUserFavoriteRecipe = (userId) => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await axios.get(
-        `${apiUrl}/recipes/my_favourites/${userId}`
-      );
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
-};
-
 export const addNewRecipe = (
   title,
   difficulty,
