@@ -14,10 +14,18 @@
 .card-body-optional {
   min-width: 100%;
 }
-.card-recipe-title {
-  text-transform: uppercase;
+.card-recipe-title-d {
+  text-transform: capitalize;
   text-align: center;
   padding: 2%;
+  font-family: "Libre Bodoni", serif;
+  font-size: 2em !important;
+}
+.card-recipe-title {
+  text-align: center;
+  padding: 2%;
+  font-family: "Libre Bodoni", serif;
+  text-transform: capitalize;
 }
 
 .difficulty {
@@ -28,6 +36,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.difficulty-duration-d {
+  display: flex;
+  font-family: "Cormorant Garamond", serif;
 }
 
 .ingredients-description {
@@ -41,6 +53,12 @@
   width: 70%;
   padding-right: 2%;
 }
+.card-recipe-description,
+.card-recipe-list-ingredients {
+  font-family: "Cormorant Garamond", serif;
+  font-size: large;
+}
 .list {
   list-style: none;
+  text-align: center;
 }

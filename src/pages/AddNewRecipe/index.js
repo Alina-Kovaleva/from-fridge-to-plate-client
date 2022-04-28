@@ -43,9 +43,15 @@ export default function AddNewRecipe() {
         ingredients
       )
     );
+    setTitle("");
+    setDifficulty(0);
+    setDuration(0);
+    setDescription("");
+    setImageUrl("");
+    setIngredients([]);
   }
   const handleChangeInput = (i, e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     const values = [...ingredients];
     values[i][e.target.name] = e.target.value;
     setIngredients(values);
@@ -63,7 +69,7 @@ export default function AddNewRecipe() {
     setIngredients([...values]);
   };
 
-  console.log(ingredients);
+  // console.log(ingredients);
   return (
     <Form as={Col} md={{ span: 6, offset: 3 }} className="add-recipe-form">
       <Container>

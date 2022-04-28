@@ -1,5 +1,12 @@
+.myfridge-page-container {
+  text-align: center;
+  padding-top: 2%;
+  font-family: "Libre Bodoni", serif;
+}
 .form-card {
-  background-color: aquamarine;
+  font-family: "Libre Bodoni", serif;
+
+  /* background-color: aquamarine; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,5 +16,12 @@
 }
 
 .form-card-title {
-  font-size: 3em;
+  font-size: 2em;
+}
+.product-title {
+  text-transform: capitalize;
+  width: 90%;
+}
+h1 {
+  font-family: "Libre Bodoni", serif;
 }

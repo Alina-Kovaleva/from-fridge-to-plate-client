@@ -100,7 +100,12 @@ export const addNewRecipe = (
 
       dispatch(recipePostSuccess(response.data.recipe));
       dispatch(
-        showMessageWithTimeout("success", false, response.data.message, 3000)
+        showMessageWithTimeout(
+          "New recipe was added success",
+          false,
+          response.data.message,
+          3000
+        )
       );
       dispatch(appDoneLoading());
     } catch (e) {

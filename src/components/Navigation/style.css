@@ -1,8 +1,17 @@
 nav {
   background-color: #ffbd14;
-  padding: 2%;
+  padding: 4%;
+  font-family: "Libre Bodoni", serif;
 }
+
 .nav-item {
-  color: antiquewhite;
   text-transform: uppercase;
+}
+
+.nav-item a {
+  color: antiquewhite !important;
+}
+
+.navbar-brand {
+  color: antiquewhite !important;
 }

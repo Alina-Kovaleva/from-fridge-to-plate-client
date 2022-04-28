@@ -19,7 +19,12 @@ export default function Item(props) {
     <Card style={{ width: "18rem" }}>
       <Card.Img style={{ padding: "8px" }} variant="top" src={props.imageUrl} />
       <Card.Body className="center">
-        <Card.Title style={{ textAlign: "center" }}>{props.title}</Card.Title>
+        <Card.Title
+          className="recipe-card-title"
+          style={{ textAlign: "center" }}
+        >
+          {props.title}
+        </Card.Title>
         <div className="recipe-card-buttons">
           <Card.Text>
             <ReactStars

@@ -12,3 +12,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.recipe-card-title {
+  font-family: "Libre Bodoni", serif;
+}

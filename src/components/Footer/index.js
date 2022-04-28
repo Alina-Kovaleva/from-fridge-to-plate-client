@@ -9,6 +9,7 @@ import LoggedOut from "../Navigation/LoggedOut";
 import MyFavourites from "../Navigation/MyFavourites";
 import AddNewRecipe from "../Navigation/AddNewRecipe";
 import MyFridge from "../Navigation/MyFridge";
+import NavbarItem from "../Navigation/NavbarItem";
 
 export default function Footer() {
   const token = useSelector(selectToken);
@@ -31,9 +32,11 @@ export default function Footer() {
       </div>
 
       <div className="footer-column-1">
-        <NavLink style={{ textTransform: "uppercase" }} to="/">
-          Recipes
-        </NavLink>
+        <NavbarItem
+          style={{ textTransform: "uppercase" }}
+          path={"/"}
+          linkText="Recipes"
+        ></NavbarItem>
         {addNewControl}
       </div>
       <div className="footer-column-2">

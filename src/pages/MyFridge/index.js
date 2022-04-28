@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Col, Button, Row, Container } from "react-bootstrap";
+import { Form, Col, Button, Row, Container, Table } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../store/user/selectors";
@@ -72,42 +72,33 @@ export default function MyFridge() {
 
   return (
     <>
-      <Container>
-        <Form>
-          {/* <h1>List of available products</h1> */}
-          <Form.Label>List of available products</Form.Label>
-          {allIngredients?.map((myproduct) => {
-            return (
-              <>
-                {/* <ListGroup horizontal key={myproduct.id}>
-                <ListGroup.Item>
-                  <h5>{myproduct.name}</h5>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <h5>{myproduct.useringredient?.amount}</h5>
-                </ListGroup.Item>
-              </ListGroup> */}
+      <Container className="myfridge-page-container">
+        <h1>List of available ingredients</h1>
 
-                <Form.Group>
-                  <Row>
-                    <Col sm={7}>
-                      <Container>
-                        <h5>{myproduct.name}</h5>
-                      </Container>
-                    </Col>
-                    <Col sm={2}>
-                      <Form.Control
-                        placeholder={myproduct.useringredient?.amount}
-                        type="number"
-                        min="0"
-                      />
-                    </Col>
-                  </Row>
-                </Form.Group>
-              </>
-            );
-          })}
-        </Form>
+        <Table>
+          <thead>
+            <tr>
+              <th>Ingredient Name</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {allIngredients?.map((myproduct) => {
+              return (
+                <tr className="poduct-box">
+                  <td className="product-title">{myproduct.name}</td>
+                  <td>
+                    <Form.Control
+                      placeholder={myproduct.useringredient?.amount}
+                      type="number"
+                      min="0"
+                    />
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
       </Container>
       <Container>
         <Form className="form-card">

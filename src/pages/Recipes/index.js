@@ -10,7 +10,7 @@ import "./style.css";
 export default function Recipes() {
   const dispatch = useDispatch();
   const recipes = useSelector(selectRecipes);
-  console.log("recipes from page", recipes);
+  // console.log("recipes from page", recipes);
   useEffect(() => {
     dispatch(fetchAllRecipes());
   }, [dispatch]);

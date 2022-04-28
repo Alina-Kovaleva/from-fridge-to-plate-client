@@ -22,6 +22,13 @@ export default function RecipeDetails() {
 
   // console.log(recipe);
 
+  const difficultyControl =
+    recipe?.difficulty < 2 ? (
+      <Card.Text> easy </Card.Text>
+    ) : (
+      <Card.Text> hard </Card.Text>
+    );
+
   const hours = Math.floor(recipe.duration / 60)
     ? Math.floor(recipe.duration / 60) + "h"
     : null;
@@ -31,7 +38,9 @@ export default function RecipeDetails() {
     <>
       <Container className="details-container">
         <Card style={{ width: "65rem", alignItems: "center" }}>
-          <Card.Title className="card-recipe-title">{recipe.title}</Card.Title>
+          <Card.Title className="card-recipe-title-d">
+            {recipe.title}
+          </Card.Title>
           <Card.Img
             style={{ padding: "8px", height: "50%", width: "50%" }}
             variant="top"
@@ -39,16 +48,20 @@ export default function RecipeDetails() {
           />
           <Card.Body className="card-body-optional">
             <div className="difficulty-duration">
-              <Card.Text className="difficulty">
-                <p>Difficulty: </p>
-                <ReactStars
-                  count={3}
-                  size={24}
-                  isHalf={true}
-                  value={recipe?.difficulty}
-                  edit={false}
-                />
-              </Card.Text>
+              <div className="difficulty-duration-d">
+                <Card.Text>Difficulty: </Card.Text>
+                <Card.Text className="difficulty">
+                  {"  "}
+                  {difficultyControl}
+                  <ReactStars
+                    count={3}
+                    size={24}
+                    isHalf={true}
+                    value={recipe?.difficulty}
+                    edit={false}
+                  />
+                </Card.Text>
+              </div>
               <Card.Text>
                 ⏱ {hours}
                 {minutes}
@@ -56,29 +69,28 @@ export default function RecipeDetails() {
             </div>
             <div className="ingredients-description">
               <Card.Text className="ingredients">
-                {/* <ListGroup> */}
-                {/* <ListGroup.Item>List of ingredients</ListGroup.Item> */}
-                <h5>List of ingredients</h5>
+                <Card.Title className="card-recipe-title">
+                  List of ingredients
+                </Card.Title>
                 <ul className="list">
                   {recipe.ingredients?.map((ingredient) => {
                     return (
                       <li key={ingredient.id}>
-                        {ingredient.recipeingredientamount?.amount}{" "}
-                        {ingredient.name}
+                        <Card.Text className="card-recipe-list-ingredients">
+                          {ingredient.recipeingredientamount?.amount}{" "}
+                          {ingredient.name}
+                        </Card.Text>
                       </li>
-                      // <ListGroup.Item key={ingredient.id}>
-                      //   {ingredient.recipeingredientamount?.amount}{" "}
-                      //   {ingredient.name}
-                      // </ListGroup.Item>
                     );
                   })}
                 </ul>
-                {/* </ListGroup> */}
               </Card.Text>
 
               <Card.Text className="description">
-                <h5>Cooking method</h5>
-                {recipe.description}
+                <Card.Title className="card-recipe-title">Method</Card.Title>
+                <Card.Text className="card-recipe-description">
+                  {recipe.description}
+                </Card.Text>
               </Card.Text>
             </div>
           </Card.Body>

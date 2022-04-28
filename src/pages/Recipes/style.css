@@ -1,6 +1,7 @@
 .main-page {
   background-color: #ffbd14;
   display: flex;
+  justify-content: center;
 }
 /* .hero-main-page {
   background: 
