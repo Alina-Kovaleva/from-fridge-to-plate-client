@@ -16,8 +16,12 @@ export default function Item(props) {
   const minutes = props.duration % 60 ? (props.duration % 60) + "m" : null;
 
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img style={{ padding: "8px" }} variant="top" src={props.imageUrl} />
+    <Card style={{ width: "18rem" }} className="recipe-card">
+      <Card.Img
+        variant="top"
+        src={props.imageUrl}
+        className="recipe-card-image"
+      />
       <Card.Body className="center">
         <Card.Title
           className="recipe-card-title"

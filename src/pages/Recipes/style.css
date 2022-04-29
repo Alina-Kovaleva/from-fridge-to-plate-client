@@ -1,5 +1,5 @@
 .main-page {
-  background-color: #ffbd14;
+  /* background-color: #ffbd14; */
   display: flex;
   justify-content: center;
 }
@@ -7,7 +7,7 @@
   background: 
 } */
 .space {
-  padding: 20px;
+  /* padding: 20px; */
   column-gap: 20px;
 }
 .card {

@@ -1,21 +1,25 @@
+.navbar-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
 nav {
-  background-color: #ffbd14;
   padding: 4%;
   font-family: "Libre Bodoni", serif;
+  background-color: #efeae7;
+}
+
+.brand {
+  color: #069161 !important;
 }
 
 .nav-item {
   text-transform: uppercase;
 }
 
-.nav-item a {
-  color: antiquewhite !important;
-}
-
-.navbar-brand {
-  color: antiquewhite !important;
-}
-
-.nav-link-item a:hover {
-  color: rgb(28, 59, 28) !important;
+.nav-item > a:hover {
+  color: rgb(28, 59, 28);
+  color: #069161 !important;
 }

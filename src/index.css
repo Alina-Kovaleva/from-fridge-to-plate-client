@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+.main-container,
+.main-page {
+  min-height: 100%;
+}
+
+.main-page {
+  padding-top: 40px;
+}

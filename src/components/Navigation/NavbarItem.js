@@ -5,8 +5,8 @@ import "./style.css";
 
 export default function NavbarItem(props) {
   return (
-    <Nav.Item className="nav-item">
-      <Nav.Link as={NavLink} to={props.path} className="nav-link-item">
+    <Nav.Item>
+      <Nav.Link as={NavLink} to={props.path}>
         {props.linkText}
       </Nav.Link>
     </Nav.Item>
