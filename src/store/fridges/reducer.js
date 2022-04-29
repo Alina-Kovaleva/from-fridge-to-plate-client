@@ -1,4 +1,8 @@
-import { FETCH_INGREDIENTS, PRODUCTS_POST_SUCCESS } from "./types";
+import {
+  FETCH_INGREDIENTS,
+  PRODUCTS_POST_SUCCESS,
+  PRODUCT_CHANGE_SUCCESS,
+} from "./types";
 
 const initialState = { allIngredients: [] };
 
@@ -11,8 +15,14 @@ export default function reducer(state = initialState, action) {
         ...state,
         ...action.payload,
         // ...state,
+        // allIngredients: {
+        //   allIngredients: [...state.allIngredients, action.payload],
+        // },
+        // ...state,
         // allIngredients: [...state.allIngredients, action.payload],
       };
+    case PRODUCT_CHANGE_SUCCESS:
+      return { ...state, ...action.payload };
     default: {
       return state;
     }

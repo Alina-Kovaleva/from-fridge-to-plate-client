@@ -15,3 +15,7 @@ nav {
 .navbar-brand {
   color: antiquewhite !important;
 }
+
+.nav-link-item a:hover {
+  color: rgb(28, 59, 28) !important;
+}

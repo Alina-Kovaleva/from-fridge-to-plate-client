@@ -13,8 +13,8 @@ export default function AddNewRecipe() {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
-  const [difficulty, setDifficulty] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [difficulty, setDifficulty] = useState(1);
+  const [duration, setDuration] = useState(5);
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [ingredients, setIngredients] = useState([
@@ -44,8 +44,8 @@ export default function AddNewRecipe() {
       )
     );
     setTitle("");
-    setDifficulty(0);
-    setDuration(0);
+    setDifficulty(1);
+    setDuration(5);
     setDescription("");
     setImageUrl("");
     setIngredients([]);
@@ -116,17 +116,17 @@ export default function AddNewRecipe() {
                     <Button
                       onClick={() => handleAdd(i)}
                       className="mt-2"
-                      style={{ width: "50px" }}
+                      style={{ width: "100px" }}
                     >
-                      +
+                      Add more
                     </Button>
                     <Button
                       disabled={field.id === 1}
                       onClick={() => handleSubstract(i)}
                       className="mt-2"
-                      style={{ width: "50px", marginLeft: "1%" }}
+                      style={{ width: "100px", marginLeft: "1%" }}
                     >
-                      -
+                      Delete
                     </Button>
                   </Row>
                 </Col>
@@ -167,7 +167,7 @@ export default function AddNewRecipe() {
       </Container>
       <Container>
         <Form.Group>
-          <Form.Label>Difficulty</Form.Label>
+          <Form.Label>Difficulty 1-3</Form.Label>
           <Form.Control
             value={difficulty}
             type="number"

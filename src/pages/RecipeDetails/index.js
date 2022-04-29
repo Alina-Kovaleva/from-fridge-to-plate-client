@@ -52,7 +52,7 @@ export default function RecipeDetails() {
                 <Card.Text>Difficulty: </Card.Text>
                 <Card.Text className="difficulty">
                   {"  "}
-                  {difficultyControl}
+                  {/* {difficultyControl} */}
                   <ReactStars
                     count={3}
                     size={24}

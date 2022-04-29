@@ -16,7 +16,7 @@ export default function Navigation() {
   const token = useSelector(selectToken);
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
-  const favouritesControl = token ? <MyFavourites /> : null;
+  // const favouritesControl = token ? <MyFavourites /> : null;
   const addNewControl = token ? <AddNewRecipe /> : null;
   const myFridgeControl = token ? <MyFridge /> : null;
 
@@ -31,7 +31,7 @@ export default function Navigation() {
           <NavbarItem path="/" linkText="Recipes" />
           {addNewControl}
           {myFridgeControl}
-          {favouritesControl}
+          {/* {favouritesControl} */}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

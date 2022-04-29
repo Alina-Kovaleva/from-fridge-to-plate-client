@@ -16,6 +16,6 @@
   color: beige;
 }
 
-.footer-container a:visited:active {
+.footer-link a:hover {
   color: red;
 }

@@ -18,9 +18,9 @@ export default function Footer() {
   ) : (
     <LoggedOut />
   );
-  const favouritesControl = token ? (
-    <MyFavourites className="footer-link" />
-  ) : null;
+  // const favouritesControl = token ? (
+  //   <MyFavourites className="footer-link" />
+  // ) : null;
   const addNewControl = token ? <AddNewRecipe className="footer-link" /> : null;
   const myFridgeControl = token ? <MyFridge className="footer-link" /> : null;
   return (
@@ -41,7 +41,7 @@ export default function Footer() {
       </div>
       <div className="footer-column-2">
         {myFridgeControl}
-        {favouritesControl}
+        {/* {favouritesControl} */}
       </div>
       <div className="footer-column-3">{loginLogoutControls}</div>
     </Container>
