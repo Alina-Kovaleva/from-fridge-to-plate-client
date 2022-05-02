@@ -21,8 +21,11 @@ export default function Footer() {
   // const favouritesControl = token ? (
   //   <MyFavourites className="footer-link" />
   // ) : null;
-  const addNewControl = token ? <AddNewRecipe className="footer-link" /> : null;
-  const myFridgeControl = token ? <MyFridge className="footer-link" /> : null;
+  // const addNewControl = token ? <AddNewRecipe className="footer-link" /> : null;
+  // const myFridgeControl = token ? <MyFridge className="footer-link" /> : null;
+
+  if (!token) return null;
+
   return (
     <Container className="footer-container">
       <div className="footer-logo">
@@ -37,10 +40,10 @@ export default function Footer() {
           path={"/"}
           linkText="Recipes"
         ></NavbarItem>
-        {addNewControl}
+        {token && <AddNewRecipe className="footer-link" />}
       </div>
       <div className="footer-column-2">
-        {myFridgeControl}
+        {token && <MyFridge className="footer-link" />}
         {/* {favouritesControl} */}
       </div>
       <div className="footer-column-3">{loginLogoutControls}</div>
