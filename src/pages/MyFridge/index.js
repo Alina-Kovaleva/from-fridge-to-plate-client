@@ -81,15 +81,7 @@ export default function MyFridge() {
     <>
       <Container className="myfridge-page-container">
         <h1 className="page-header">My Fridge</h1>
-        <input
-          type="number"
-          id="tentacles"
-          name="tentacles"
-          min={10}
-          max={100}
-          value={30}
-        ></input>
-        {/* <Form.Control value={3} type="number" min="0" /> */}
+
         <Container className="fridge-page-content">
           <Table style={{ width: "50%" }}>
             <thead>
