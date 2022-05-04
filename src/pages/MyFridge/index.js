@@ -16,6 +16,13 @@ import { selectToken } from "../../store/user/selectors";
 
 import "./style.css";
 
+const addProductInitialState = [
+  {
+    productName: "",
+    amount: 1,
+  }, // uiid 6
+]; // uiid 10
+
 export default function MyFridge() {
   const dispatch = useDispatch();
 
@@ -26,30 +33,30 @@ export default function MyFridge() {
   const allIngredients = useSelector(selectIngredients);
   console.log("allIngredients= ", allIngredients);
 
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      productName: "",
-      amount: 1,
-    },
-  ]);
+  const [products, setProducts] = useState(addProductInitialState);
 
   // const [myFridgeIngredient, setMyFridgeIngredient] = useState();
 
   function submitForm(event) {
     event.preventDefault();
+    setProducts(addProductInitialState);
     dispatch(addNewProducts(products));
   }
 
   const handleChangeInput = (i, e) => {
     console.log(e.target.value);
-    const values = [...products];
-    values[i][e.target.name] = e.target.value;
-    setProducts(values);
+
+    const updatedFields = products.map((p, index) =>
+      i === index ? { ...p, [e.target.name]: e.target.value } : p
+    );
+
+    // const values = [...products];
+    // values[i][e.target.name] = e.target.value;
+    setProducts(updatedFields);
   };
 
   const handleAdd = (id) => {
-    setProducts([...products, { id: id + 2, productName: "", amount: 1 }]);
+    setProducts([...products, { productName: null, amount: 1 }]);
   };
   const handleSubstract = (i) => {
     const values = [...products];
@@ -77,6 +84,7 @@ export default function MyFridge() {
     dispatch(fetchAllIngredients());
   }, [dispatch]);
 
+  console.log("products", products);
   return (
     <>
       <Container className="myfridge-page-container">
@@ -125,49 +133,52 @@ export default function MyFridge() {
               </Form.Label>
               <Row>
                 <Form.Group>
-                  {products.map((field, i) => (
-                    <Row className="mt-1 input-ingredient-fild" key={i}>
-                      <Col sm={6}>
-                        <Form.Control
-                          value={field.productName}
-                          name="productName"
-                          onChange={(event) => handleChangeInput(i, event)}
-                          type="text"
-                          placeholder="Product name"
-                          required
-                        />
-                      </Col>
-                      <Col sm={2}>
-                        <Form.Control
-                          value={field.amount}
-                          name="amount"
-                          type="number"
-                          min="0"
-                          onChange={(event) => handleChangeInput(i, event)}
-                          required
-                        />
-                      </Col>
-                      <Col className="ingredients-buttons">
-                        <Row>
-                          <Button
-                            onClick={() => handleAdd(i)}
-                            className="mt-2"
-                            style={{ width: "100px" }}
-                          >
-                            Add extra
-                          </Button>
-                          <Button
-                            disabled={field.id === 1}
-                            onClick={() => handleSubstract(i)}
-                            className="mt-2"
-                            style={{ width: "100px", marginLeft: "1%" }}
-                          >
-                            Remove
-                          </Button>
-                        </Row>
-                      </Col>
-                    </Row>
-                  ))}
+                  {products.map((field, i) => {
+                    console.log("field", field);
+                    return (
+                      <Row className="mt-1 input-ingredient-fild" key={i}>
+                        <Col sm={6}>
+                          <Form.Control
+                            value={field.productName}
+                            name="productName"
+                            onChange={(event) => handleChangeInput(i, event)}
+                            type="text"
+                            placeholder="Product name"
+                            required
+                          />
+                        </Col>
+                        <Col sm={2}>
+                          <Form.Control
+                            value={field.amount}
+                            name="amount"
+                            type="number"
+                            min="0"
+                            onChange={(event) => handleChangeInput(i, event)}
+                            required
+                          />
+                        </Col>
+                        <Col className="ingredients-buttons">
+                          <Row>
+                            <Button
+                              onClick={() => handleAdd(i)}
+                              className="mt-2"
+                              style={{ width: "100px" }}
+                            >
+                              Add extra
+                            </Button>
+                            <Button
+                              disabled={i === 0}
+                              onClick={() => handleSubstract(i)}
+                              className="mt-2"
+                              style={{ width: "100px", marginLeft: "1%" }}
+                            >
+                              Remove
+                            </Button>
+                          </Row>
+                        </Col>
+                      </Row>
+                    );
+                  })}
                 </Form.Group>
               </Row>
               <Form.Group className="mt-5 form-submit-button">
