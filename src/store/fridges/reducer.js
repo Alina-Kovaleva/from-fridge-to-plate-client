@@ -12,14 +12,7 @@ export default function reducer(state = initialState, action) {
       return { ...state, allIngredients: action.payload };
     case PRODUCTS_POST_SUCCESS:
       return {
-        ...state,
-        ...action.payload,
-        // ...state,
-        // allIngredients: {
-        //   allIngredients: [...state.allIngredients, action.payload],
-        // },
-        // ...state,
-        // allIngredients: [...state.allIngredients, action.payload],
+        allIngredients: action.payload,
       };
     case PRODUCT_CHANGE_SUCCESS:
       return { ...state, ...action.payload };

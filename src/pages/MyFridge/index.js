@@ -62,11 +62,11 @@ export default function MyFridge() {
   };
 
   //  HOW to send two useEffect
-  // useEffect(() => {
-  //   if (token === null) {
-  //     navigate("/");
-  //   }
-  // }, [token, navigate]);
+  useEffect(() => {
+    if (token === null) {
+      navigate("/");
+    }
+  }, [token, navigate]);
 
   // if (allIngredients === []) return <Loading />;
   // // console.log("ingredients= ", ingredients);
@@ -171,7 +171,7 @@ export default function MyFridge() {
                 </Form.Group>
               </Row>
               <Form.Group className="mt-5 form-submit-button">
-                <Button variant="primary" type="submit" onClick={submitForm}>
+                <Button variant="primary" onClick={submitForm}>
                   Add products
                 </Button>
               </Form.Group>

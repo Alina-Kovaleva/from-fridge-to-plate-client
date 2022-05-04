@@ -81,7 +81,10 @@ export const getUserWithStoredToken = () => {
     const token = selectToken(getState());
 
     // if we have no token, stop
-    if (token === null) return;
+    if (token === null) {
+      dispatch(appDoneLoading());
+      return;
+    }
 
     dispatch(appLoading());
     try {
