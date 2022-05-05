@@ -9,7 +9,7 @@ import "./style.css";
 export default function Item(props) {
   const token = useSelector(selectToken);
 
-  const loginControlFav = token ? <Button>♡</Button> : null;
+  // const loginControlFav = token ? <Button>♡</Button> : null;
   const hours = Math.floor(props.duration / 60)
     ? Math.floor(props.duration / 60) + "h"
     : null;
@@ -45,7 +45,7 @@ export default function Item(props) {
           </Card.Text>
         </div>
         <div className="recipe-card-buttons">
-          {loginControlFav}
+          {/* {loginControlFav} */}
 
           <Link to={`/recipes/${props.id}`}>
             <Button className="center" variant="success">
