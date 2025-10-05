@@ -3,7 +3,6 @@ import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage,
 } from "../appState/actions";
 import axios from "axios";
 
@@ -25,6 +24,7 @@ export const recipePostSuccess = (recipe) => ({
 
 export const fetchAllRecipes = () => {
   return async (dispatch, getState) => {
+    dispatch(appLoading());
     try {
       const { token } = selectUser(getState());
       const headers = {};
@@ -36,19 +36,24 @@ export const fetchAllRecipes = () => {
         headers: headers,
       });
       dispatch(fetchRecipes(response.data));
-    } catch (e) {
-      console.log(e.message);
+    } catch (error) {
+      console.error("Failed to load recipes", error);
+    } finally {
+      dispatch(appDoneLoading());
     }
   };
 };
 
 export const fetchRecipeById = (id) => {
   return async (dispatch, getState) => {
+    dispatch(appLoading());
     try {
       const response = await axios.get(`${apiUrl}/recipes/${id}`);
       dispatch(fetchRecipe(response.data));
-    } catch (e) {
-      console.log(e.message);
+    } catch (error) {
+      console.error(`Failed to load recipe ${id}`, error);
+    } finally {
+      dispatch(appDoneLoading());
     }
   };
 };
@@ -84,8 +89,6 @@ export const addNewRecipe = (
           },
         }
       );
-      console.log("what is the response= ", response);
-
       dispatch(recipePostSuccess(response.data.recipe));
       dispatch(
         showMessageWithTimeout(
@@ -95,9 +98,10 @@ export const addNewRecipe = (
           3000
         )
       );
+    } catch (error) {
+      console.error("Failed to add new recipe", error);
+    } finally {
       dispatch(appDoneLoading());
-    } catch (e) {
-      console.log(e.message);
     }
   };
 };

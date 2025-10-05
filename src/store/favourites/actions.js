@@ -7,8 +7,8 @@ export const fetchUserFavoriteRecipe = (userId) => {
       const response = await axios.get(
         `${apiUrl}/recipes/my_favourites/${userId}`
       );
-    } catch (e) {
-      console.log(e.message);
+    } catch (error) {
+      console.error("Failed to load favourite recipes", error);
     }
   };
 };

@@ -7,10 +7,10 @@ import {
 
 const initialState = {
   loading: false,
-  message: null
+  message: null,
 };
 
-export default (state = initialState, action) => {
+const appStateReducer = (state = initialState, action) => {
   switch (action.type) {
     case APP_LOADING:
       return { ...state, loading: true };
@@ -28,3 +28,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default appStateReducer;

@@ -1,14 +1,10 @@
 import React from "react";
-import ReactStars from "react-rating-stars-component";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectToken } from "../../store/user/selectors";
+import RatingStars from "../RatingStars";
 import "./style.css";
 
 export default function Item(props) {
-  const token = useSelector(selectToken);
-
   // const loginControlFav = token ? <Button>♡</Button> : null;
   const hours = Math.floor(props.duration / 60)
     ? Math.floor(props.duration / 60) + "h"
@@ -30,15 +26,7 @@ export default function Item(props) {
           {props.title}
         </Card.Title>
         <div className="recipe-card-buttons">
-          <Card.Text>
-            <ReactStars
-              count={3}
-              size={24}
-              activeColor={"red"}
-              value={props.difficulty}
-              edit={false}
-            />
-          </Card.Text>
+          <RatingStars value={props.difficulty} max={3} size={24} color="#dc3545" />
           <Card.Text className="duration-text">
             ⏱ {hours}
             {minutes}
