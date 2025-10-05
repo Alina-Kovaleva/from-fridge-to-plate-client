@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Form, Col, Button, Row, Container, Table } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../store/user/selectors";
-import Loading from "../../components/Loading";
 import { selectIngredients } from "../../store/fridges/selectors";
 import {
   fetchAllIngredients,
@@ -31,7 +29,6 @@ export default function MyFridge() {
   const navigate = useNavigate();
 
   const allIngredients = useSelector(selectIngredients);
-  console.log("allIngredients= ", allIngredients);
 
   const [products, setProducts] = useState(addProductInitialState);
 
@@ -44,8 +41,6 @@ export default function MyFridge() {
   }
 
   const handleChangeInput = (i, e) => {
-    console.log(e.target.value);
-
     const updatedFields = products.map((p, index) =>
       i === index ? { ...p, [e.target.name]: e.target.value } : p
     );
@@ -84,7 +79,6 @@ export default function MyFridge() {
     dispatch(fetchAllIngredients());
   }, [dispatch]);
 
-  console.log("products", products);
   return (
     <>
       <Container className="myfridge-page-container">
@@ -134,7 +128,6 @@ export default function MyFridge() {
               <Row>
                 <Form.Group>
                   {products.map((field, i) => {
-                    console.log("field", field);
                     return (
                       <Row className="mt-1 input-ingredient-fild" key={i}>
                         <Col sm={6}>

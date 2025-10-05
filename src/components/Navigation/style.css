@@ -7,12 +7,13 @@
 }
 nav {
   padding: 4%;
-  font-family: "Libre Bodoni", serif;
+  font-family: 'Libre Bodoni', serif;
   background-color: #efeae7;
 }
 
 .brand {
   color: #069161 !important;
+  padding-left: 4%;
 }
 
 .nav-item {
@@ -22,4 +23,12 @@ nav {
 .nav-item > a:hover {
   color: rgb(28, 59, 28);
   color: #069161 !important;
+}
+
+.nav-button {
+  text-transform: uppercase;
+  color: wheat !important;
+  border-color: #069161 !important;
+  background-color: #069161 !important;
+  margin-right: 4%;
 }

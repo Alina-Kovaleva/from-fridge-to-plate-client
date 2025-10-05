@@ -5,7 +5,7 @@ import { selectRecipe } from "../../store/recipes/selectors";
 import { fetchRecipeById } from "../../store/recipes/actions";
 import Loading from "../../components/Loading";
 import { Container, Card } from "react-bootstrap";
-import ReactStars from "react-rating-stars-component";
+import RatingStars from "../../components/RatingStars";
 import "./style.css";
 
 export default function RecipeDetails() {
@@ -21,13 +21,6 @@ export default function RecipeDetails() {
   if (recipe === null) return <Loading />;
 
   // console.log(recipe);
-
-  const difficultyControl =
-    recipe?.difficulty < 2 ? (
-      <Card.Text> easy </Card.Text>
-    ) : (
-      <Card.Text> hard </Card.Text>
-    );
 
   const hours = Math.floor(recipe.duration / 60)
     ? Math.floor(recipe.duration / 60) + "h"
@@ -49,26 +42,16 @@ export default function RecipeDetails() {
           <Card.Body className="card-body-optional">
             <div className="difficulty-duration">
               <div className="difficulty-duration-d">
-                <Card.Text>Difficulty: </Card.Text>
-                <Card.Text className="difficulty">
-                  {"  "}
-                  {/* {difficultyControl} */}
-                  <ReactStars
-                    count={3}
-                    size={24}
-                    isHalf={true}
-                    value={recipe?.difficulty}
-                    edit={false}
-                  />
-                </Card.Text>
+                <Card.Text as="span">Difficulty:&nbsp;</Card.Text>
+                <RatingStars value={recipe?.difficulty} max={3} size={24} />
               </div>
-              <Card.Text>
+              <Card.Text as="div">
                 ⏱ {hours}
                 {minutes}
               </Card.Text>
             </div>
             <div className="ingredients-description">
-              <Card.Text className="ingredients">
+              <Card.Text as="section" className="ingredients">
                 <Card.Title className="card-recipe-title">
                   List of ingredients
                 </Card.Title>
@@ -76,7 +59,10 @@ export default function RecipeDetails() {
                   {recipe.ingredients?.map((ingredient) => {
                     return (
                       <li key={ingredient.id}>
-                        <Card.Text className="card-recipe-list-ingredients">
+                        <Card.Text
+                          as="span"
+                          className="card-recipe-list-ingredients"
+                        >
                           {ingredient.recipeingredientamount?.amount}{" "}
                           {ingredient.name}
                         </Card.Text>
@@ -86,9 +72,9 @@ export default function RecipeDetails() {
                 </ul>
               </Card.Text>
 
-              <Card.Text className="description">
+              <Card.Text as="section" className="description">
                 <Card.Title className="card-recipe-title">Method</Card.Title>
-                <Card.Text className="card-recipe-description">
+                <Card.Text as="p" className="card-recipe-description">
                   {recipe.description}
                 </Card.Text>
               </Card.Text>

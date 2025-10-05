@@ -1,12 +1,11 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
 import LoggedIn from "../Navigation/LoggedIn";
 import LoggedOut from "../Navigation/LoggedOut";
-import MyFavourites from "../Navigation/MyFavourites";
 import AddNewRecipe from "../Navigation/AddNewRecipe";
 import MyFridge from "../Navigation/MyFridge";
 import NavbarItem from "../Navigation/NavbarItem";

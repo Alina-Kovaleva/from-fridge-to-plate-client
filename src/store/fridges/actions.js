@@ -3,7 +3,6 @@ import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage,
 } from "../appState/actions";
 import axios from "axios";
 
@@ -40,11 +39,10 @@ export const fetchAllIngredients = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("response= ", response);
       dispatch(fetchIngredients(response.data));
       dispatch(appDoneLoading());
-    } catch (e) {
-      console.log(e.message);
+    } catch (error) {
+      console.error("Failed to load fridge ingredients", error);
     }
   };
 };
@@ -67,15 +65,13 @@ export const addNewProducts = (products) => {
           },
         }
       );
-      console.log("what is the response= ", response);
-
       dispatch(productsPostSuccess(response.data.products));
       dispatch(
         showMessageWithTimeout("success", false, response.data.message, 3000)
       );
       dispatch(appDoneLoading());
-    } catch (e) {
-      console.log(e.message);
+    } catch (error) {
+      console.error("Failed to add products", error);
     }
   };
 };
@@ -100,8 +96,8 @@ export const changeProductAmount = (ingredientId, amount) => {
         showMessageWithTimeout("success", false, response.data.message, 3000)
       );
       dispatch(appDoneLoading());
-    } catch (e) {
-      console.log(e.message);
+    } catch (error) {
+      console.error("Failed to update product amount", error);
     }
   };
 };

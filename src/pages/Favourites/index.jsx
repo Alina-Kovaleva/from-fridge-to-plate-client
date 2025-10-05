@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../store/user/selectors";
-import Loading from "../../components/Loading";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
 import { selectToken } from "../../store/user/selectors";
