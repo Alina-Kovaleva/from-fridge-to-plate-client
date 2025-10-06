@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
-      "process.env.VITE_API_URL": JSON.stringify(env.VITE_API_URL),
+      __API_URL__: JSON.stringify(env.VITE_API_URL ?? ""),
     },
     server: {
       port: 3000,
