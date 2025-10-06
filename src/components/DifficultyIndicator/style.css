@@ -1,0 +1,17 @@
+.difficulty-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+}
+
+.difficulty-indicator__icons {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.difficulty-indicator__hat {
+  display: inline-flex;
+  filter: drop-shadow(0 1.5px 1px rgba(0, 0, 0, 0.12));
+}
