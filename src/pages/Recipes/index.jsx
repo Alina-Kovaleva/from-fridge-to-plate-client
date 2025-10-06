@@ -47,7 +47,9 @@ export default function Recipes() {
           ) : null}
           {showEmptyState ? (
             <Alert variant="warning" className="cold-start-alert">
-              No recipes to show yet. Please try refreshing the page.
+              No recipes have loaded yet. Because this project runs on a free
+              Neon database, it can take a few extra seconds to wake up. Give it
+              a moment and refresh once or twice if the list stays empty.
             </Alert>
           ) : null}
           {/* <Row>
