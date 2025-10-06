@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import RatingStars from "../RatingStars";
+import DifficultyIndicator from "../DifficultyIndicator";
 import "./style.css";
 
 export default function Item(props) {
@@ -26,7 +26,13 @@ export default function Item(props) {
           {props.title}
         </Card.Title>
         <div className="recipe-card-buttons">
-          <RatingStars value={props.difficulty} max={3} size={24} color="#dc3545" />
+          <DifficultyIndicator
+            value={props.difficulty}
+            max={3}
+            size={24}
+            color="#3d5a80"
+            mutedColor="#e9ecef"
+          />
           <Card.Text className="duration-text">
             ⏱ {hours}
             {minutes}

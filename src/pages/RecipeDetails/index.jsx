@@ -5,7 +5,7 @@ import { selectRecipe } from "../../store/recipes/selectors";
 import { fetchRecipeById } from "../../store/recipes/actions";
 import Loading from "../../components/Loading";
 import { Container, Card } from "react-bootstrap";
-import RatingStars from "../../components/RatingStars";
+import DifficultyIndicator from "../../components/DifficultyIndicator";
 import "./style.css";
 
 export default function RecipeDetails() {
@@ -43,7 +43,13 @@ export default function RecipeDetails() {
             <div className="difficulty-duration">
               <div className="difficulty-duration-d">
                 <Card.Text as="span">Difficulty:&nbsp;</Card.Text>
-                <RatingStars value={recipe?.difficulty} max={3} size={24} />
+                <DifficultyIndicator
+                  value={recipe?.difficulty}
+                  max={3}
+                  size={28}
+                  color="#3d5a80"
+                  mutedColor="#e9ecef"
+                />
               </div>
               <Card.Text as="div">
                 ⏱ {hours}
