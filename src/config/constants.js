@@ -1,6 +1,6 @@
 const resolveApiUrl = () => {
   if (typeof process !== "undefined" && process.env) {
-    return process.env.VITE_API_URL || process.env.REACT_APP_API_URL;
+    return process.env.VITE_API_URL;
   }
 
   return undefined;
